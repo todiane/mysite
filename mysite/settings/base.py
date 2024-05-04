@@ -27,6 +27,7 @@ INSTALLED_APPS = [
     "blog",
     "home",
     "base",
+    "portfolio",
     "search",
     "wagtail.contrib.settings",
     "wagtail.contrib.forms",
