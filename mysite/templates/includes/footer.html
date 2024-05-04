@@ -1,0 +1,23 @@
+<footer>
+  <p>Built with Wagtail</p>
+
+  {% with twitter_url=settings.base.NavigationSettings.twitter_url github_url=settings.base.NavigationSettings.github_url linkedin_url=settings.base.NavigationSettings.linkedin_url %}
+      {% if twitter_url or github_url or linkedin_url %}
+          <p>
+              Follow me on:
+              {% if github_url %}
+                  <a href="{{ github_url }}">GitHub</a>
+              {% endif %}
+              {% if twitter_url %}
+                  <a href="{{ twitter_url }}">Twitter</a>
+              {% endif %}
+              {% if linkedin_url %}
+                  <a href="{{ linkedin_url }}">LinkedIn</a>
+              {% endif %}
+          </p>
+      {% endif %}
+  {% endwith %}
+  
+  {% get_footer_text %}
+
+</footer>
