@@ -10,18 +10,20 @@
     <div class="intro">{{ page.intro|richtext }}</div>
 
     {% for post in blogpages %}
-        {% with post=post.specific %}
-            <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
-            <p>{{ post.intro }}</p>
-            {% with post.main_image as main_image %}
+    {% with post=post.specific %}
+        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        {% with post.main_image as main_image %}
             {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
         {% endwith %}
-
         <p>{{ post.intro }}</p>
-        
-        {{ post.body|richtext }}
+        {% with truncated_body=post.body|richtext|truncatechars:250 %}
+            {{ truncated_body }}
+            {% if post.body|richtext|length > 250 %}
+                <a href="{{ post.url }}">Read more</a>
+            {% endif %}
+        {% endwith %}
     {% endwith %}
-    
 {% endfor %}
+
 
 {% endblock %}

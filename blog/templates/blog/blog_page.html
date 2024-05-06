@@ -8,31 +8,32 @@
     <h1>{{ page.title }}</h1>
     <p class="meta">{{ page.date }}</p>
 
-    <!-- Add this: -->
-    {% with authors=page.authors.all %}
-        {% if authors %}
-            <h3>Posted by:</h3>
-            <ul>
-                {% for author in authors %}
-                    <li style="display: inline">
-                        {% image author.author_image fill-40x60 style="vertical-align: middle" %}
-                        {{ author.name }}
-                    </li>
-                {% endfor %}
-            </ul>
-        {% endif %}
-    {% endwith %}
+    {% for item in page.gallery_images.all %}
+        <div style="display: inline-block; margin: 10px; vertical-align: top;">
+            {% image item.image fill-500x240 %}
+            <p>{{ item.caption }}</p>
+        </div>
+    {% endfor %}
 
+   
     <div class="intro">{{ page.intro }}</div>
 
     {{ page.body|richtext }}
 
-    {% for item in page.gallery_images.all %}
-        <div style="float: inline-start; margin: 10px">
-            {% image item.image fill-320x240 %}
-            <p>{{ item.caption }}</p>
-        </div>
-    {% endfor %}
+    {% with authors=page.authors.all %}
+    {% if authors %}
+        <h3>Posted by:</h3>
+        <ul>
+            {% for author in authors %}
+                <li style="display: inline">
+                    {% image author.author_image fill-40x60 style="vertical-align: left" %}
+                    {{ author.name }}
+                </li>
+            {% endfor %}
+        </ul>
+    {% endif %}
+{% endwith %}
+
 
     <p><a href="{{ page.get_parent.url }}">Return to blog</a></p>
 
