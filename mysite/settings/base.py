@@ -29,6 +29,7 @@ INSTALLED_APPS = [
     "base",
     "portfolio",
     "search",
+    "djangify",
     "wagtail.contrib.settings",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
