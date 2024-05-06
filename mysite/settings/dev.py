@@ -16,3 +16,16 @@ try:
     from .local import *
 except ImportError:
     pass
+
+# sentry settings
+
+sentry_sdk.init(
+    dsn="https://f3ceb5eeb0099e1cb9ae1bc70ca560ff@o4507209196699648.ingest.de.sentry.io/4507209199517776",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
