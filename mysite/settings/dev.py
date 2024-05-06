@@ -1,4 +1,5 @@
 from .base import *
+import sentry_sdk
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -18,9 +19,8 @@ except ImportError:
     pass
 
 # sentry settings
-
 sentry_sdk.init(
-    dsn="https://f3ceb5eeb0099e1cb9ae1bc70ca560ff@o4507209196699648.ingest.de.sentry.io/4507209199517776",
+    dsn="https://baac9ddbca83ea5f41f31e39f375af75@o4507209196699648.ingest.de.sentry.io/4507209272000592",
     # Set traces_sample_rate to 1.0 to capture 100%
     # of transactions for performance monitoring.
     traces_sample_rate=1.0,
