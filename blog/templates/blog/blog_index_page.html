@@ -11,15 +11,17 @@
 
     {% for post in blogpages %}
     {% with post=post.specific %}
-        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
+        
         {% with post.main_image as main_image %}
-            {% if main_image %}{% image main_image fill-160x100 %}{% endif %}
+            {% if main_image %}{% image main_image fill-460x200 %}
+            {% endif %}
+        <h2><a href="{% pageurl post %}">{{ post.title }}</a></h2>
         {% endwith %}
         <p>{{ post.intro }}</p>
         {% with truncated_body=post.body|richtext|truncatechars:250 %}
             {{ truncated_body }}
             {% if post.body|richtext|length > 250 %}
-                <a href="{{ post.url }}">Read more</a>
+              <p>  <a href="{{ post.url }}">Read more</a></p>
             {% endif %}
         {% endwith %}
     {% endwith %}
