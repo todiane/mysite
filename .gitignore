@@ -229,5 +229,4 @@ GitHub.sublime-settings
 #static files
 
 /static/*
-!blog/static/
 !mysite/static/
