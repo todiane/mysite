@@ -14,7 +14,8 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 import os
 
 PROJECT_DIR = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
-BASE_DIR = os.path.dirname(PROJECT_DIR)
+from pathlib import Path
+BASE_DIR = Path(__file__).resolve().parent.parent.parent
 
 
 # Quick-start development settings - unsuitable for production
@@ -29,7 +30,6 @@ INSTALLED_APPS = [
     "base",
     "portfolio",
     "search",
-    "djangify",
     "wagtail.contrib.settings",
     "wagtail.contrib.forms",
     "wagtail.contrib.redirects",
