@@ -230,3 +230,4 @@ GitHub.sublime-settings
 
 /static/*
 !blog/static/
+!mysite/static/
