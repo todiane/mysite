@@ -3,7 +3,7 @@ import os
 import sentry_sdk
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 # -- Recommended CodeRed Cloud settings ---------------------------------------
 
