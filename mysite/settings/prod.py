@@ -1,5 +1,6 @@
 from .base import *  # noqa
 import os
+import sentry_sdk
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
@@ -35,3 +36,16 @@ DATABASES = {
 }
 
 WAGTAILADMIN_BASE_URL = f"http://{os.environ['VIRTUAL_HOST']}"
+
+
+# sentry settings
+sentry_sdk.init(
+    dsn="https://baac9ddbca83ea5f41f31e39f375af75@o4507209196699648.ingest.de.sentry.io/4507209272000592",
+    # Set traces_sample_rate to 1.0 to capture 100%
+    # of transactions for performance monitoring.
+    traces_sample_rate=1.0,
+    # Set profiles_sample_rate to 1.0 to profile 100%
+    # of sampled transactions.
+    # We recommend adjusting this value in production.
+    profiles_sample_rate=1.0,
+)
